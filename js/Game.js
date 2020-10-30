@@ -19,6 +19,11 @@
         ];
         return phraseObjects;
      }
+
+     getRandomPhrase() {
+         let randomPhrase = Math.floor(Math.random() * this.phrases.length);
+         return randomPhrase;
+     }
  }
 
 
