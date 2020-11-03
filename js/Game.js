@@ -21,7 +21,9 @@
      }
 
      getRandomPhrase() {
-         let randomPhrase = Math.floor(Math.random() * this.phrases.length);
+         //this will retune the phrase of the corresponding index number
+         let randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
+    
          return randomPhrase;
      }
  }
