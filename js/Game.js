@@ -9,6 +9,14 @@
          this.activePhrase;
      }
 
+     startGame() {
+         const hideOverlay = document.getElementById('overlay');
+         hideOverlay.style.display = "none";
+         this.activePhrase = this.getRandomPhrase();
+         this.activePhrase.addPhraseToDisplay();
+
+     }
+
      createPhrases () {
         const phraseObjects = [
             {phrase: 'big smile'},
@@ -21,7 +29,7 @@
      }
 
      getRandomPhrase() {
-         //this will retune the phrase of the corresponding index number
+         //this will return the phrase of the corresponding index number
          let randomPhrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];
     
          return randomPhrase;
