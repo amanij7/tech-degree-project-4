@@ -12,13 +12,12 @@
         let splitPhrase = this.phrase.split('');
         //this will add the phrase to the display
         for (let i = 0; i < splitPhrase.length; i++) {
-          if (splitPhrase[i] === " ") {
+          if (splitPhrase[i] !== " ") {
             let li = document.createElement("li");
             li.className = 'letter';
-            li.className = 'hide';
             li.textContent = splitPhrase[i];
             ul[0].appendChild(li);
-          } else if (splitPhrase[i] !== " ") {
+          } else {
             let spaceLi = document.createElement("li");
             spaceLi.className = 'space';
             spaceLi.textContent = splitPhrase[i];
