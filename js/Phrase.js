@@ -28,4 +28,19 @@
       
       }
 
+      checkLetter(letter) {
+          if (this.phrase.includes(letter) === true) {
+              return true;
+          } else {
+              return false;
+          }
+      }
+
+      showMatchedLetter(letter) {
+          const allLetters;
+          for (let i = 0; i = allLetters.length; i++) {
+              
+          }
+      }
+
  }

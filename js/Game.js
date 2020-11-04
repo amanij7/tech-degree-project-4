@@ -37,9 +37,8 @@
          return randomPhrase;
      }
 
-     handleInteraction(clicked) {
-         let letterSelected =  clicked.textContent;
-
+     checkForWin() {
+         
      }
  }
 
