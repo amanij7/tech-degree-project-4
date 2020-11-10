@@ -13,12 +13,12 @@
         //this will add the phrase to the display
         for (let i = 0; i < splitPhrase.length; i++) {
           if (splitPhrase[i] !== " ") {
-            let li = document.createElement("li");
+            let li = document.createElement('li');
             li.className = 'letter';
             li.textContent = splitPhrase[i];
             ul[0].appendChild(li);
           } else {
-            let spaceLi = document.createElement("li");
+            let spaceLi = document.createElement('li');
             spaceLi.className = 'space';
             spaceLi.textContent = splitPhrase[i];
             ul[0].appendChild(spaceLi);
@@ -37,9 +37,9 @@
       }
 
       showMatchedLetter(letter) {
-          const allLetters;
+          const allLetters = document.getElementsByClassName(letter);
           for (let i = 0; i = allLetters.length; i++) {
-              
+              allLetters[i].className = 'show';
           }
       }
 
