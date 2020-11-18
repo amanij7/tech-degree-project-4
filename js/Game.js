@@ -58,17 +58,15 @@
      }
 
      gameOver(win) {
-         const endOverlay = document.getElementById('overlay');
+         const overlay = document.getElementById('overlay');
          const message = document.getElementById('game-over-message');
 
          if (win === true) {
-             overLay.className = 'win';
-             endOverlay.style.display = '';
-             message.textContent = 'YOU WIN!';
+            overlay.className = 'win';
+            message.textContent = 'YOU WIN!';
          } else {
-             overLay.className = 'lose';
-             endOverlay.style.display = '';
-             message.textContent = 'SORRY. YOU LOSE.';
+            overlay.className = 'lose';
+            message.textContent = 'SORRY. YOU LOSE.';
          }
      }
 
@@ -76,17 +74,16 @@
         clicked.disabled = true;
         let letterClicked = clicked.textContent;
 
-        if (this.activePhrase.checkLetter(letterClicked)) {
-            this.activePhrase.showMatchedLetter(letterClicked);
-            letterClicked.className = 'chosen';
-        if(this.checkForWin()) {
-            this.gameOver(true);
-        } else if (this.activePhrase.checkLetter(letterClicked) === false) {
-            letterClicked.className = 'wrong';
+        if (this.activePhrase.checkLetter(letterClicked) === false) {
+            clicked.className = 'wrong';
             this.removeLife();
             this.gameOver(false);
+        } else {
+            this.activePhrase.showMatchedLetter(letterClicked);
+            clicked.className = 'chosen';
+        } if (this.checkForWin()) {
+            this.gameOver(true);
         }
-    }
 
 
      }
