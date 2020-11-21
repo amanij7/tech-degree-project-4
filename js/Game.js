@@ -47,7 +47,7 @@
      }
 
      removeLife() {
-        const hearts = document.getElementsByClassName('tries');
+        let hearts = document.querySelector('img[src="images/record.png"]')
 
         if (this.missed < 4) {
             hearts.src = 'images/lostHeart.png';

@@ -7,26 +7,26 @@
         this.phrase = phrase;
      }
 
+
     addPhraseToDisplay() {
-        const ul = document.getElementsByTagName('ul');
+        const ul = document.querySelector('[id=phrase] ul');
         let splitPhrase = this.phrase.split('');
-        //this will add the phrase to the display
-        for (let i = 0; i < splitPhrase.length; i++) {
-          if (splitPhrase[i] !== " ") {
-            let li = document.createElement('li');
-            li.className = 'letter';
-            li.textContent = splitPhrase[i];
-            ul[0].appendChild(li);
-          } else {
-            let spaceLi = document.createElement('li');
-            spaceLi.className = 'space';
-            spaceLi.textContent = splitPhrase[i];
-            ul[0].appendChild(spaceLi);
-          }
-        }
-        return ul;
-      
-      }
+   
+        for(let i = 0; i < splitPhrase.length; i++) {
+         const li = document.createElement('li');
+         const character = splitPhrase[i];
+         ul.appendChild(li);
+         li.textContent = character;
+         if(character === " ") {
+           li.className = 'space';
+         } else {
+           li.className = `hide letter ${character}`;
+    
+         }
+       }
+     }
+   
+
 
       checkLetter(letter) {
           if (this.phrase.includes(letter) === true) {
@@ -37,10 +37,10 @@
       }
 
       showMatchedLetter(letter) {
-          const allLetters = document.getElementsByClassName(letter);
-          for (let i = 0; i = allLetters.length; i++) {
-              allLetters[i].className = 'show';
-          }
+        const allLetters = document.getElementsByClassName(letter);
+        for(let i = 0; i < allLetters.length; i++) {
+          allLetters[i].className = `show letter ${letter}`;
+        }
       }
 
  }
