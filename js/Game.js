@@ -75,16 +75,16 @@
         clicked.disabled = true;
         let letterClicked = clicked.textContent;
 
-        if (this.activePhrase.checkLetter(letterClicked) === false) {
+          if (this.checkForWin()) {
+            this.gameOver(true);
+        } if (this.activePhrase.checkLetter(letterClicked) === false) {
             clicked.className = 'wrong';
             this.removeLife();
-            this.gameOver(false);
+            this.gameOver(false);     
         } else {
             this.activePhrase.showMatchedLetter(letterClicked);
             clicked.className = 'chosen';
-        } if (this.checkForWin()) {
-            this.gameOver(true);
-        }
+        } 
 
 
      }
