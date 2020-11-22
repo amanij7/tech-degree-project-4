@@ -38,22 +38,23 @@
      }
 
      checkForWin() {
+        const ul = document.querySelector('ul');
         let hidden = document.getElementsByClassName('hide');
-        if (hidden.length === 0) {
-            return true;
-        } else {
+        if (ul.innerHTML.includes(hidden)) {
             return false;
+        } else {
+            return true;
         }
      }
 
      removeLife() {
-        let hearts = document.querySelector('img[src="images/record.png"]')
-
+        let hearts = document.querySelector('img[src="images/liveHeart.png"]')
+        this.missed = 0;
         if (this.missed < 4) {
             hearts.src = 'images/lostHeart.png';
             this.missed+= 1;
-        } else {
-            this.gameOver();
+        } else if (this.missed === 5){
+            this.gameOver(false);
         }
      }
 
@@ -64,7 +65,7 @@
          if (win === true) {
             overlay.className = 'win';
             message.textContent = 'YOU WIN!';
-         } else {
+         } else if (win === false) {
             overlay.className = 'lose';
             message.textContent = 'SORRY. YOU LOSE.';
          }
