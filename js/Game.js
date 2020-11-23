@@ -48,10 +48,11 @@
      }
 
      removeLife() {
+         console.log(this.missed);
+        this.missed+= 1;
         let hearts = document.querySelector('img[src="images/liveHeart.png"]')
         if (this.missed < 5) {
             hearts.src = 'images/lostHeart.png';
-            this.missed+= 1;
         } else if (this.missed === 5){
             this.gameOver(false);
         }
@@ -64,9 +65,11 @@
          if (win === true) {
             overlay.className = 'win';
             message.textContent = 'YOU WIN!';
+            overlay.style.display = '';
          } else if (win === false) {
             overlay.className = 'lose';
             message.textContent = 'SORRY. YOU LOSE.';
+            overlay.style.display = '';
          }
      }
 

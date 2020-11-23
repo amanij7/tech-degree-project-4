@@ -17,7 +17,7 @@ qwerty.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
     const keyboard = document.querySelectorAll('.key');
-    for (let i = 0; i < keyborad.length; i++ ) {
+    for (let i = 0; i < keyboard.length; i++ ) {
         if (keyboard[i].textContent === e.key) {
             game.handleInteraction(keyboard[i]);
         }
