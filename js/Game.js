@@ -4,7 +4,7 @@
 
  class Game {
      constructor() {
-         this.missed;
+         this.missed = 0;
          this.phrases = this.createPhrases();
          this.activePhrase;
      }
@@ -38,9 +38,9 @@
      }
 
      checkForWin() {
-        const ul = document.querySelector('ul');
-        let hidden = document.getElementsByClassName('hide');
-        if (ul.innerHTML.includes(hidden)) {
+        let hidden = document.querySelectorAll('.hide');
+        for (let i = 0; i < hidden.length; i++)
+        if (hidden.length === 0) {
             return false;
         } else {
             return true;
@@ -49,8 +49,7 @@
 
      removeLife() {
         let hearts = document.querySelector('img[src="images/liveHeart.png"]')
-        this.missed = 0;
-        if (this.missed < 4) {
+        if (this.missed < 5) {
             hearts.src = 'images/lostHeart.png';
             this.missed+= 1;
         } else if (this.missed === 5){
