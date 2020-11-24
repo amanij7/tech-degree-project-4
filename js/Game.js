@@ -100,16 +100,10 @@
         for (let i = 0; i < heartsLost.length; i++) {
             heartsLost[i].src = 'images/liveHeart.png';
         }
-        let wrongKey = document.getElementsByClassName('wrong');
-        for (let i = 0; i < wrongKey.length; i++) {
-            wrongKey[i].className = 'key';
-            wrongKey[i].disabled = false;
-        }
-
-        let rightKey = document.getElementsByClassName('chosen');
-        for (let i = 0; i < rightKey.length; i++) {
-            rightKey[i].className = 'key';
-            rightKey[i].disabled = false;
+        let allKeys = document.querySelectorAll('#qwerty button');
+        for (let i = 0; i < allKeys.length; i++) {
+            allKeys.classList.add(key);
+            allKeys.disabled = false;
         }
 
     }
