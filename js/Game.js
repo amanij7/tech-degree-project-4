@@ -39,11 +39,10 @@
 
      checkForWin() {
         let hidden = document.querySelectorAll('.hide');
-        for (let i = 0; i < hidden.length; i++)
         if (hidden.length === 0) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
      }
 
@@ -54,7 +53,7 @@
         if (this.missed < 5) {
             hearts.src = 'images/lostHeart.png';
         } else if (this.missed === 5){
-            this.gameOver();
+            this.gameOver(false);
         }
      }
 
@@ -62,14 +61,16 @@
          const overlay = document.getElementById('overlay');
          const message = document.getElementById('game-over-message');
 
-         if (win === true) {
+         if (win) {
             overlay.className = 'win';
             message.textContent = 'YOU WIN!';
             overlay.style.display = '';
+            this.resetGame();
          } else if (win === false) {
             overlay.className = 'lose';
             message.textContent = 'SORRY. YOU LOSE.';
             overlay.style.display = '';
+            this.resetGame();
          }
      }
 
@@ -87,6 +88,31 @@
             this.gameOver(true);
     }
  }
+
+    resetGame() {
+        const ul = document.querySelector('ul');
+        const li = ul.querySelector('li');
+        for (let i = 0; i < li.length; i++) {
+            ul.removeChild('li');
+        }
+
+        let heartsLost = document.querySelectorAll('#scoreboard img');
+        for (let i = 0; i < heartsLost.length; i++) {
+            heartsLost[i].src = 'images/liveHeart.png';
+        }
+        let wrongKey = document.getElementsByClassName('wrong');
+        for (let i = 0; i < wrongKey.length; i++) {
+            wrongKey[i].className = 'key';
+            wrongKey[i].disabled = false;
+        }
+
+        let rightKey = document.getElementsByClassName('chosen');
+        for (let i = 0; i < rightKey.length; i++) {
+            rightKey[i].className = 'key';
+            rightKey[i].disabled = false;
+        }
+
+    }
 }
 
 
