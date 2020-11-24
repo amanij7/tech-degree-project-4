@@ -54,7 +54,7 @@
         if (this.missed < 5) {
             hearts.src = 'images/lostHeart.png';
         } else if (this.missed === 5){
-            this.gameOver(false);
+            this.gameOver();
         }
      }
 
@@ -77,20 +77,17 @@
         clicked.disabled = true;
         let letterClicked = clicked.textContent;
 
-          if (this.checkForWin()) {
-            this.gameOver(true);
-        } if (this.activePhrase.checkLetter(letterClicked) === false) {
-            clicked.className = 'wrong';
+        if (this.activePhrase.checkLetter(letterClicked) === false) {
             this.removeLife();
-            this.gameOver(false);     
-        } else {
+            clicked.className = 'wrong';
+        } else if (this.activePhrase.checkLetter(letterClicked)) {
             this.activePhrase.showMatchedLetter(letterClicked);
-            clicked.className = 'chosen';
-        } 
-
-
-     }
+            clicked.className = 'chosen';    
+        } if (this.checkForWin() === true) {
+            this.gameOver(true);
+    }
  }
+}
 
 
 
