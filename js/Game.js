@@ -91,9 +91,9 @@
 
     resetGame() {
         const ul = document.querySelector('ul');
-        const li = ul.querySelector('li');
+        const li = ul.querySelectorAll('li');
         for (let i = 0; i < li.length; i++) {
-            ul.removeChild('li');
+              ul.removeChild(li[i]);
         }
 
         let heartsLost = document.querySelectorAll('#scoreboard img');
@@ -102,7 +102,8 @@
         }
         let allKeys = document.querySelectorAll('#qwerty button');
         for (let i = 0; i < allKeys.length; i++) {
-            allKeys.classList.add(key);
+            allKeys[i].classList.remove('wrong', 'chosen');
+            allKeys[i].classList.add('key');
             allKeys.disabled = false;
         }
 
