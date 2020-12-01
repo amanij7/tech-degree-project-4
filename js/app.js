@@ -11,7 +11,6 @@ const qwerty = document.getElementById('qwerty');
 qwerty.addEventListener('click', (e) => {
     if (e.target.className === 'key') {
         game.handleInteraction(e.target);
-        
     }
 });
 

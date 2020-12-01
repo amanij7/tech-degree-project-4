@@ -66,7 +66,7 @@
             message.textContent = 'YOU WIN!';
             overlay.style.display = '';
             this.resetGame();
-         } else if (win === false) {
+         } else {
             overlay.className = 'lose';
             message.textContent = 'SORRY. YOU LOSE.';
             overlay.style.display = '';
@@ -104,10 +104,13 @@
         for (let i = 0; i < allKeys.length; i++) {
             allKeys[i].classList.remove('wrong', 'chosen');
             allKeys[i].classList.add('key');
-            allKeys.disabled = false;
+            allKeys[i].disabled = false;
         }
 
+
     }
+     
+   
 }
 
 
